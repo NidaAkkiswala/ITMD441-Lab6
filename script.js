@@ -1,12 +1,9 @@
 document.getElementById('getData').addEventListener('click', async () => {
     const select = document.getElementById('location');
     const coords = select.value;
-    const dashboard = document.getElementById('dashboard');
-  
-    dashboard.innerHTML = '<p class="placeholder">Loading data...</p>';
-  
+    
     if (!coords) {
-      dashboard.innerHTML = '<p class="placeholder">Please select a location.</p>';
+      alert('Please select a location');
       return;
     }
   
@@ -20,27 +17,24 @@ document.getElementById('getData').addEventListener('click', async () => {
   
       if (data.status !== 'OK' || data2.status !== 'OK') throw new Error('API error');
   
-      const days = [data.results, data2.results];
-      const labels = ['Today', 'Tomorrow'];
+      const today = data.results;
+      const tomorrow = data2.results;
   
-      dashboard.innerHTML = '';
+      document.getElementById('today-sunrise').textContent = today.sunrise;
+      document.getElementById('today-sunset').textContent = today.sunset;
+      document.getElementById('today-dawn').textContent = today.dawn;
+      document.getElementById('today-dusk').textContent = today.dusk;
+      document.getElementById('today-noon').textContent = today.solar_noon;
+      document.getElementById('today-length').textContent = today.day_length;
+      document.getElementById('today-zone').textContent = today.timezone;
 
-      days.forEach((day, index) => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <h3>${labels[index]}</h3>
-          <p><strong>Sunrise:</strong> ${day.sunrise}</p>
-          <p><strong>Sunset:</strong> ${day.sunset}</p>
-          <p><strong>Dawn:</strong> ${day.dawn}</p>
-          <p><strong>Dusk:</strong> ${day.dusk}</p>
-          <p><strong>Solar Noon:</strong> ${day.solar_noon}</p>
-          <p><strong>Day Length:</strong> ${day.day_length}</p>
-          <p><strong>Timezone:</strong> ${day.timezone}</p>
-          `;
-        dashboard.appendChild(card);
-      });
-  
+      document.getElementById('tomorrow-sunrise').textContent = tomorrow.sunrise;
+      document.getElementById('tomorrow-sunset').textContent = tomorrow.sunset;
+      document.getElementById('tomorrow-dawn').textContent = tomorrow.dawn;
+      document.getElementById('tomorrow-dusk').textContent = tomorrow.dusk;
+      document.getElementById('tomorrow-noon').textContent = tomorrow.solar_noon;
+      document.getElementById('tomorrow-length').textContent = tomorrow.day_length;
+      document.getElementById('tomorrow-zone').textContent = tomorrow.timezone;
   
     } catch (err) {
       dashboard.innerHTML = '<p class="placeholder">Error fetching data. Please try again later.</p>';
