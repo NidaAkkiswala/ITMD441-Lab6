@@ -37,7 +37,7 @@ document.getElementById('getData').addEventListener('click', async () => {
       document.getElementById('tomorrow-zone').textContent = tomorrow.timezone;
   
     } catch (err) {
-      dashboard.innerHTML = '<p class="placeholder">Error fetching data. Please try again later.</p>';
+      alert('Error fetching data. Please try again later.');
       console.error(err);
     }
   });
