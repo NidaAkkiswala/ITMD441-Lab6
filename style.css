@@ -86,6 +86,12 @@ button {
     text-align: center;
 }
 
+.placeholder {
+    grid-column: 1 / -1;
+    font-style: italic;
+    color: #DF8537;
+}
+
 @media (max-width: 600px) {
     main {
         padding: 1em;
