@@ -1,7 +1,7 @@
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
-    background: #C6DDF0;
+    background: #CDF7F6;
     display: flex;
     flex-direction: column;
 }
@@ -10,6 +10,16 @@ header, footer {
     background-color: #197278;
     text-align: center;
     padding: 1em;
+    color: #DDD92A;
+    font-size: 1.25em;
+}
+
+header h1::before {
+    content: '\2600';
+}
+
+header h1::after {
+    content: '\2600';
 }
 
 main {
@@ -21,14 +31,31 @@ main {
 }
 
 .controls {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    display: grid;     
+    grid-template-columns: auto auto auto;     
+    gap: 1em;    
+    align-items: center;     
+    justify-content: center;      
+    text-align: center;
 }
 
+ .controls label {      
+     font-weight: bold;      
+     font-size: 1.5em;
+     color: #197278;
+     text-decoration: underline;
+ }
+
 select, button {
-    font-size: medium;
-    border-radius: 4px;
+    border-radius: 5px;
+    padding: 0.5em;      
+    font-size: 1em;      
+    border: 1px solid #ccc;
+}
+
+button {
+    cursor: pointer;      
+    transition: background-color 0.3s ease;
 }
 
 .dashboard {
@@ -38,22 +65,25 @@ select, button {
 }
 
 .card {
-    background-color: #9C7CA5;
+    background-color: #D36374;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     box-shadow: 2px;
     padding: 1em;
+    font-size: 1.25em;
 }
 
 .card h3 {
-    display: flex;
-    align-items: center;
-    color: #542344;
+    text-align: center;
+    color: #DDD92A;
+    text-decoration: underline;
+    
 }
 
 .card p {
-    color: #542344;
+    color: #DDD92A;
+    text-align: center;
 }
 
 @media (max-width: 600px) {
@@ -62,7 +92,8 @@ select, button {
     }
 
     .controls {
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 }
