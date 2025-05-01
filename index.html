@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="Width=device-width, initial-scale=1.0">
+        <title>Sunrise & Sunset Dashboard</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Sunrise and Sunset Dashboard</h1>
+            <p>Select a location to view sunrise and sunset times.</p>
+        </header>
+
+        <main>
+            <section class="controls">
+                <label for="location">Choose a Location</label>
+                <select id="location">
+                    <option value="">--Select--</option>
+                    <option value="40.7128,-74.0060">New York, USA</option>
+                    <option value="34.0522,-118.2437">Los Angeles, USA</option>
+                    <option value="51.5074,-0.1278">London, UK</option>
+                    <option value="35.6895,139.6917">Tokyo, Japan</option>
+                    <option value="-33.8688,151.2093">Sydney, Australia</option>
+                    <option value="48.8566,2.3522">Paris, France</option>
+                    <option value="55.7558,37.6173">Moscow, Russia</option>
+                    <option value="52.52,13.405">Berlin, Germany</option>
+                    <option value="19.0760,72.8777">Mumbai, India</option>
+                    <option value="-23.5505,-46.6333">São Paulo, Brazil</option>
+                </select>
+                <button id="getData">Get Times</button>
+            </section>
+
+            <section id="dashboard" class="dashboard">
+                <p class="placeholder">Data will appear here after you select a location</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Data provided by <a href="https://sunrisesunset.io/api/" target="_blank">sunrisesunset.io API</a></p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
